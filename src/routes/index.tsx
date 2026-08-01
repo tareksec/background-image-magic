@@ -347,14 +347,12 @@ function Index() {
                 {tools.map((tool, i) => (
                   <motion.div
                     key={tool}
-                    className={`flex items-center gap-2 rounded-xl border border-border bg-card p-2 shadow-note ${
-                      i % 2 === 1 ? "translate-y-2" : ""
-                    }`}
+                    className="flex items-center gap-2 rounded-xl border border-border bg-card p-2 shadow-note"
                     initial={{ opacity: 0, y: 14, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    whileInView={{ opacity: 1, y: i % 2 === 1 ? 8 : 0, scale: 1 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.55, delay: 0.3 + i * 0.08, ease: EASE }}
-                    whileHover={{ y: -4, scale: 1.04 }}
+                    whileHover={{ y: (i % 2 === 1 ? 8 : 0) - 4, scale: 1.04 }}
                   >
                     <span className="flex size-7 items-center justify-center rounded-lg bg-secondary text-[10px] font-bold text-accent-foreground">
                       {tool.slice(0, 2)}
